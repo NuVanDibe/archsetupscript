@@ -110,7 +110,7 @@ read wkde
 
 [[ "\$wkde" =~ [Yy] ]] && echo "KDE Meta?"
 read wkdemeta
-[[ "\$wkdemeta" =~ [Yy] ]] && packidge="\$packidge kde-meta"
+[[ "\$wkdemeta" =~ [Yy] ]] && packidge="\$packidge plasma-meta"
 
 [[ "\$wkde" =~ [Yy] ]] && echo "Default KDE Applications?"
 read wkdeapps
@@ -128,12 +128,12 @@ echo "Type any additional pacman (not yay/aur) packages, if any, separated by sp
 read wpackidge
 packidge="\$packidge \$wpackidge"
 
-echo "Type any additional aur packages, if any, separated by spaces, and press enter. Example: "aur/linux-steam-integration aur/brave-bin"
+echo "Type any additional aur packages, if any, separated by spaces, and press enter. Example: \"aur/linux-steam-integration aur/brave-bin\""
 read wyaykidge
 yaykidge="\$wyaykidge"
 
-#todo: debug line
-echo "packages: "\$packidge
+
+
 
 ln -sf /usr/share/zoneinfo/\${localev} /etc/localtime
 hwclock --systohc
