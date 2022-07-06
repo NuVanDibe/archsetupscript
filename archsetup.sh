@@ -175,7 +175,7 @@ eohosts
 
 if [[ -z "\$packidge" ]]; then echo Skipping additional package install; else pacman -S \$packidge --noconfirm; fi
 
-if [[ -z "\$yaykidge" ]]; then echo Skipping additional aur package install; else su - \$nameofnonrootuser -c "yay -S $yaykidge --noconfirm"; fi
+if [[ -z "\$yaykidge" ]]; then echo Skipping additional aur package install; else su - \$nameofnonrootuser -c "yay -S \$yaykidge --noconfirm"; fi
 
 # if lxde was chosen, wipe out twm and add lxde to xinitrc
 [[ "\$wlxde" =~ [Yy] ]] && sed "\$(grep -n 'twm' /etc/X11/xinit/xinitrc | cut -d ':' -f 1).\$(wc -l /etc/X11/xinit/xinitrc | cut -d ' ' -f 1)d" /etc/X11/xinit/xinitrc
@@ -183,8 +183,8 @@ if [[ -z "\$yaykidge" ]]; then echo Skipping additional aur package install; els
 
 # enable services
 systemctl enable NetworkManager
-[[ "$wpulse" =~ [Yy] ]] && systemctl enable bluez
-[[ "$wkdemeta" =~ [Yy] ]] && systemctl enable sddm
+[[ "\$wpulse" =~ [Yy] ]] && systemctl enable bluez
+[[ "\$wkdemeta" =~ [Yy] ]] && systemctl enable sddm
 
 echo "You're done! If everything went well, go ahead and reboot the system."
 exit
