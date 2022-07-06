@@ -183,7 +183,7 @@ if [[ -z "\$yaykidge" ]]; then echo Skipping additional aur package install; els
 
 # enable services
 systemctl enable NetworkManager
-[[ "\$wpulse" =~ [Yy] ]] && systemctl enable bluez
+[[ "\$wpulse" =~ [Yy] ]] && systemctl enable bluetooth
 [[ "\$wkdemeta" =~ [Yy] ]] && systemctl enable sddm
 
 echo "You're done! If everything went well, go ahead and reboot the system."
